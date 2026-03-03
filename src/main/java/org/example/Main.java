@@ -1,17 +1,40 @@
 package org.example;
+import java.util.Random;
+import java.util.Scanner;
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+    static void main(String[] args) {
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+
+        int turns = 3;
+
+        Random num1 = new Random();
+        int newNum = num1.nextInt(50);
+
+        //System.out.println("Random num is " + newNum);
+
+        for (int i = 0; i < turns; i++) {
+            Scanner myNum = new Scanner(System.in);
+            System.out.println("Enter number");
+
+            Integer num = myNum.nextInt();
+            System.out.println("Number chosen is " + num);
+
+            if (newNum == num) {
+                System.out.println("number matches");
+            } else if (num < newNum) {
+                System.out.println("Guess was too low");
+            } else if (num > newNum) {
+                System.out.println("Guess was too high");
+            }
         }
+        System.out.println("You lost, number was " + newNum);
     }
 }
+
+
+
+
