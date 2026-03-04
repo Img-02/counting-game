@@ -2,26 +2,28 @@ package org.example;
 import java.util.Random;
 import java.util.Scanner;
 
+public class Game {
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    static void main(String[] args) {
+    private final GameConfiguration config;
 
+    public Game(GameConfiguration config) {
 
-        int turns = 3;
+        this.config = config;
+    }
 
-        Random num1 = new Random();
-        int newNum = num1.nextInt(50);
+    public void runGame(){
 
-        //System.out.println("Random num is " + newNum);
+        System.out.println("Welcome to the game");
+        System.out.println("You have " + config.turns() + "chances to guess");
 
-        for (int i = 0; i < turns; i++) {
+        for(int attempt = 1; attempt <= config.turns(); attempt++) {
             Scanner myNum = new Scanner(System.in);
             System.out.println("Enter number");
-
             Integer num = myNum.nextInt();
             System.out.println("Number chosen is " + num);
+
+            Random num1 = new Random();
+            int newNum = num1.nextInt(50);
 
             if (newNum == num) {
                 System.out.println("number matches");
@@ -30,10 +32,11 @@ public class Main {
             } else if (num > newNum) {
                 System.out.println("Guess was too high");
             }
-        }
-        System.out.println("You lost, number was " + newNum);
-    }
-}
+            System.out.println("You lost, number was " + newNum);
+        }}}
+
+
+
 
 
 
